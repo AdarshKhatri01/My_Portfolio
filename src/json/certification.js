@@ -1,6 +1,6 @@
 import ibm_python101 from "../assets/certifications/PYTHON101.jpg"
 import ibm_dataAnalysisWithPython from "../assets/certifications/DATA-ANALYSIS-WITH-PYTHON.jpg"
-import matlab_exploreCNN from "../assets/certifications/Explore-CNN.jpg"
+import matlab_exploreCNN from "../assets/certifications/EXPLORE-CNN.jpg"
 
 
 const certificationsData = {
