@@ -1,0 +1,21 @@
+.app {
+  font-family: "Roboto", sans-serif;
+  color: var(--text-primary);
+  line-height: 1.6;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 0 10px;
+  }
+}
+
