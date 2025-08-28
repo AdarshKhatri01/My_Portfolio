@@ -4,7 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Github } from "lucide-react";
 import styles from "./Projects.module.css";
-// import portfolioPreview from '../assets/portfolioPreview.jpg';
+import crimeAwarePreview from '../assets/projects/crimeAwarePreview.png';
+import portfolioPreview from '../assets/projects/portfolioPreview.png';
 // import luxeRidePreview from '../assets/luxeRidePreview.png';
 // import agriChainPreview from '../assets/agriChainPreview.png';
 // import gradiaPreview from "../assets/gradiaPreview.png";
@@ -12,54 +13,37 @@ import LeetCode from "./LeetCode";
 
 const projects = [
   {
-    title: "Gradia",
-    description: "Gradia is an AI powered grading tool designed to help teachers evaluate student answers quickly and fairly. It uses Retrieval Augmented Generation (RAG) to match answers with the uploaded course material and grade responses accordingly - no random AI hallucinations, just grounded grading. It also provides students with helpful feedback and citations, so they know what they did right, what went wrong, and how to improve next time.",
-    technologies: ["Python", "Node JS", "Next JS", "Express", "Gemini API", "GCP"],
-    image: "gradiaPreview",
-    github: "https://github.com/tokenomists/Gradia",
-    liveDemo: "https://gradia-tokenomists.vercel.app/"
-  },
-  {
-    title: "AgriChain",
-    description: "AgriChain is a blockchain-powered platform that connects farmers and consumers directly, ensuring fair pricing, transparency, and sustainability in agriculture through smart contracts and AI-driven insights.",
-    technologies: ["Next JS", "Tailwind CSS", "Node JS", "Express", "Gemini API"],
-    image: "agriChainPreview",
-    github: "https://github.com/tokenomists/AgriChain",
-    liveDemo: null, 
-  },
-  {
-    title: "Loan Insights Dashboard using BigQuery & Looker (Google Cloud Capstone)",
-    description: "A real-world capstone project simulating a cloud data analyst role at a FinTech startup. I designed a dashboard and executive summary report for the Treasury team to monitor loan health, performance, and growth using BigQuery and Looker. This included data ingestion, transformation, dashboard design, and insight generation.",
-    technologies: ["Google Cloud Platform", "BigQuery", "Looker", "SQL"],
-    image: "https://github.com/Aashiq-Edavalapati/google-cloud-data-analytics-capstone/blob/main/Part%202%20-%20Analyze%20and%20activate%20your%20data%20with%20Looker%20Enterprise/screenshots/9_Top%2010%20Customers%20by%20Highest%20Income.png?raw=true",
-    github: "https://github.com/Aashiq-Edavalapati/google-cloud-data-analytics-capstone/",
+    title: "CCTV Crime Surveillance",
+    description: "This is an AI-powered real-time video surveillance system designed to detect violent activities such as fights, presence of weapons (guns/knives), and other suspicious behaviors. It leverages a hybrid deep learning pipeline where ResNet50 is used for feature extraction and LSTM for temporal sequence analysis across video frames. The system was trained on public datasets like the Hockey Fight dataset along with custom-curated samples, and evaluated using confusion matrices and classification reports to ensure reliability in real-world scenarios.",
+    technologies: ["Python", "PyTorch", "OpenCV", "ResNet50", "LSTM", "Scikit-learn", "Matplotlib"],
+    image: crimeAwarePreview,
+    github: "https://github.com/AdarshKhatri01/Video-Surveillance",
     liveDemo: null
-  },
-  {
-    title: "Link-Us",
-    description:
-      "LinkUs is a Python-based Social Networking System that enables users to connect based on shared hobbies and mutual connections. It offers functionalities such as user registration, hobby management and friend recommendations based on different criteria. It also features a post and messaging system to facilitate interaction among users.",
-    technologies: ["Python", "Data Structures and Algorithms"],
-    image: "https://as2.ftcdn.net/v2/jpg/00/71/77/63/1000_F_71776384_zRstSHXTHOfRmvuXy1jQGnt14QO3SqhH.jpg",
-    github: "https://github.com/adithya-menon-r/Link-Us",
-    liveDemo: null,
   },
   {
     title: "Personal Portfolio",
     description: "A personal portfolio website built using Vite, React to showcase my skills, projects, certifications, and achievements. I have also used web scraping techniques to dynamicaly fetch and display my LeetCode stats, GitHub contributions, and other relevant data.",
-    technologies: ["React", "CSS", "Python", "Web Scraping"],
-    image: "portfolioPreview",
-    github: "https://github.com/Aashiq-Edavalapati/My_Portfolio",
-    liveDemo: "https://aashiqedavalapati.vercel.app/",
+    technologies: ["React", "CSS", "Python", "Express", "Web Scraping"],
+    image: portfolioPreview,
+    github: "https://github.com/AdarshKhatri01/My_Portfolio",
+    liveDemo: "https://my-portfolio-mt.vercel.app/",
   },
   {
-    title: "LuxeRide Rentals",
-    description: "A modern and efficient Car Rental Website designed for seamless vehicle booking and management. This platform ensures a hassle-free experience for users looking to rent cars, with real-time availability, secure authentication, and an intuitive UI.",
-    technologies: ["HTML", "CSS", "JS", "Node JS", "Electron"],
-    image: "luxeRidePreview",
-    github: "https://github.com/Aashiq-Edavalapati/Car-Rental-Website",
-    liveDemo: null,
-  }
+    title: "Secure Login Hub",
+    description: "Secure Login Hub",
+    technologies: ["React", "CSS", "Formik", "NodeJS", "ExpressJS", "Mongoose"],
+    image: portfolioPreview,
+    github: "https://github.com/Adarsh-Khatri/SecureLoginHub/",
+    liveDemo: "https://myblog--app.firebaseapp.com/login",
+  },
+  {
+    title: "Blog App",
+    description: "Blog App",
+    technologies: ["React", "CSS", "NodeJS", "ExpressJS", "Mongoose"],
+    image: portfolioPreview,
+    github: "https://github.com/Adarsh-Khatri/Mern-Blog-App",
+    liveDemo: "https://myblog--app.firebaseapp.com/login",
+  },
 ];
 
 const Projects = () => {
@@ -200,6 +184,7 @@ const Projects = () => {
                       alt={selectedProject.title}
                       className={styles.fallbackImage} />
                     <p>Live preview not available for this project</p>
+                    <p>{selectedProject.description}</p>
                   </div>
                 )}
               </div>

@@ -1,8 +1,8 @@
-.app {
+.App {
   font-family: "Roboto", sans-serif;
   color: var(--text-primary);
   line-height: 1.6;
-  background-color: var(--bg-primary);
+  background-color: transparent;
   position: relative;
   overflow-x: hidden;
 }
@@ -18,4 +18,3 @@ main {
     padding: 0 10px;
   }
 }
-

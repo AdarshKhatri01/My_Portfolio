@@ -14,6 +14,22 @@
   --error-rgb: 255, 71, 87;
 }
 
+/* :root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-secondary-rgb: 26, 26, 26;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8b8;
+  --text-secondary-rgb: 184, 184, 184;
+  --accent-color: #00ffff;
+  --accent-color-dark: #00cccc;
+  --accent-rgb: 0, 255, 255;
+  --success-color: #00ffbb;
+  --success-rgb: 0, 255, 187;
+  --error-color: #ff4757;
+  --error-rgb: 255, 71, 87;
+} */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,13 +41,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* In globals.css or index.css */
+
+
 body {
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(135deg, var(--bg-primary), #12122a);
+  /* background: linear-gradient(135deg, var(--bg-primary), #12122a); */
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+::selection {
+  background-color: rgb(147, 226, 123);
 }
 
 body::before {

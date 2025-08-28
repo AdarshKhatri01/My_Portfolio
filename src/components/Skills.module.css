@@ -1,28 +1,4 @@
-.skillScroll {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 16px;
-  padding: 10px 0;
-  margin-bottom: 20px;
-  scrollbar-width: thin;
-  scrollbar-color: #00ffff transparent;
-}
-
-.skillScroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.skillScroll::-webkit-scrollbar-thumb {
-  background: #00ffff;
-  border-radius: 10px;
-}
-
-.skillScroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-
+/* --- General Section Layout --- */
 .skills {
   padding: 5rem 0;
   background-color: var(--bg-primary);
@@ -41,7 +17,7 @@
 .categoryTitle {
   font-size: 1.5rem;
   color: var(--accent-color);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
@@ -62,6 +38,7 @@
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  width: 100%;
 }
 
 .skillItem:hover {
@@ -80,7 +57,8 @@
   color: var(--text-secondary);
 }
 
-/* Modal Styles */
+
+/* --- Modal Styles --- */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -152,6 +130,7 @@
   border-bottom: 1px solid var(--border-color);
 }
 
+/* Modal Tabs */
 .modalTabs {
   display: flex;
   border-bottom: 1px solid var(--border-color);
@@ -183,134 +162,97 @@
   padding: 2rem;
 }
 
-/* Demo Tab */
-.demoContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.codeContainer {
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  padding: 1rem;
-  overflow-x: auto;
-  position: relative;
-}
-
-.codeSnippet {
-  margin: 0;
-  color: #d4d4d4;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-.runButton {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: var(--accent-color);
-  color: #000;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.runButton:hover {
-  background-color: #00ffff;
-  transform: translateY(-2px);
-}
-
-.runButton:active {
-  transform: translateY(0);
-}
-
-.runButton:disabled {
-  background-color: #4a4a4a;
-  color: #7a7a7a;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.compilingContainer {
+.emptyState {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
   background-color: var(--bg-secondary);
   border-radius: 8px;
-  padding: 1rem;
-  animation: fadeIn 0.3s ease-out;
 }
 
-.compilingStatus {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
+
+/* --- Reusable Card & Meter Components (inside Modal) --- */
+.cardBase {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
 }
 
-.compilingText {
-  color: var(--text-secondary);
+.strengthMeterContainer {
+  composes: cardBase;
+  /* Using composes for CSS Modules, or just add both classes in React */
+  text-align: center;
 }
 
-.compilingPercentage {
+.strengthMeterContainer h4 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
   color: var(--accent-color);
-  font-weight: bold;
 }
 
-.progressBarOuter {
+.strengthBar {
   height: 10px;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  overflow: hidden;
-}
-
-.progressBarInner {
-  height: 100%;
-  background-color: var(--accent-color);
-  border-radius: 5px;
-  transition: width 0.1s ease-out;
-}
-
-.outputContainer {
-  background-color: var(--bg-secondary);
-  border-radius: 8px;
-  padding: 1rem;
-  animation: fadeIn 0.3s ease-out;
-}
-
-.outputContainer h4 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: var(--accent-color);
-}
-
-.codeOutput {
-  font-family: 'Consolas', monospace;
-  color: var(--text-primary);
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.placeholderDemo {
-  background-color: var(--bg-secondary);
-  padding: 2rem;
-  text-align: center;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.placeholderDemo .runButton {
+  margin: 0 auto 1.5rem;
   position: relative;
-  top: 0;
-  right: 0;
 }
 
-/* Projects Tab */
+.strengthFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff 0%, #00ffaa 100%);
+  border-radius: 5px;
+  transition: width 1s ease-out;
+}
+
+.strengthMarker {
+  position: absolute;
+  bottom: -25px;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.useCasesTitle {
+  color: var(--accent-color);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.useCaseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.useCaseCard {
+  composes: cardBase;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.useCaseCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+}
+
+.useCaseIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.useCaseName {
+  color: var(--accent-color);
+  margin: 0 0 0.5rem;
+}
+
+.useCaseDescription {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
 .projectsContainer {
   display: flex;
   flex-direction: column;
@@ -318,11 +260,10 @@
 }
 
 .projectCard {
+  composes: cardBase;
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--bg-secondary);
-  border-radius: 8px;
   transition: transform 0.2s;
 }
 
@@ -371,181 +312,7 @@
   text-decoration: underline;
 }
 
-/* Certifications Tab */
-.certificationsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.certificationCard {
-  flex: 1;
-  min-width: 200px;
-  padding: 1.5rem;
-  background-color: var(--bg-secondary);
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.certificationCard h4 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--accent-color);
-}
-
-.certificationCard p {
-  margin: 0.5rem 0;
-  color: var(--text-secondary);
-}
-
-.certLink {
-  display: inline-block;
-  margin-top: 1rem;
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-.certLink:hover {
-  text-decoration: underline;
-}
-
-.experienceLevelCard {
-  width: 100%;
-  padding: 2rem;
-  background-color: var(--bg-secondary);
-  border-radius: 8px;
-  text-align: center;
-}
-
-.experienceLevelCard h4 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  color: var(--accent-color);
-}
-
-.experienceMeter {
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 30px;
-}
-
-.experienceLevel {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.beginner {
-  background-color: #3498db;
-  width: 33%;
-}
-
-.intermediate {
-  background-color: #2ecc71;
-  width: 66%;
-}
-
-.advanced {
-  background-color: #f39c12;
-  width: 100%;
-}
-
-/* Use Cases Tab (Replaced Timeline) */
-.useCasesContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.strengthMeterContainer {
-  background-color: var(--bg-secondary);
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.strengthMeterContainer h4 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  color: var(--accent-color);
-}
-
-.strengthBar {
-  height: 10px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  margin: 0 auto 1.5rem;
-  position: relative;
-}
-
-.strengthFill {
-  height: 100%;
-  background: linear-gradient(90deg, #00ffff 0%, #00ffaa 100%);
-  border-radius: 5px;
-  transition: width 1s ease-out;
-}
-
-.strengthMarker {
-  position: absolute;
-  bottom: -25px;
-  transform: translateX(-50%);
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-}
-
-.useCasesTitle {
-  color: var(--accent-color);
-  text-align: center;
-  margin: 1rem 0;
-}
-
-.useCaseGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-}
-
-.useCaseCard {
-  background-color: var(--bg-secondary);
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.useCaseCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
-}
-
-.useCaseIcon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.useCaseName {
-  color: var(--accent-color);
-  margin: 0 0 0.5rem;
-}
-
-.useCaseDescription {
-  color: var(--text-secondary);
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-.emptyState {
-  text-align: center;
-  padding: 2rem;
-  color: var(--text-secondary);
-  background-color: var(--bg-secondary);
-  border-radius: 8px;
-}
-
-/* Animations */
+/* --- Animations --- */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -568,7 +335,8 @@
   }
 }
 
-/* Responsive Styles */
+
+/* --- Responsive Styles --- */
 @media (max-width: 768px) {
   .skillGrid {
     grid-template-columns: repeat(3, 1fr);
@@ -606,43 +374,7 @@
     font-size: 0.9rem;
   }
 
-  .certificationsContainer {
-    flex-direction: column;
-  }
-
   .useCaseGrid {
     grid-template-columns: 1fr;
   }
-
-  .runButton {
-    position: relative;
-    display: block;
-    margin-top: 1rem;
-    width: 100%;
-  }
-
-  .codeContainer .runButton {
-    position: relative;
-    right: auto;
-    top: auto;
-    margin-top: 1rem;
-    width: 100%;
-  }
-}
-
-.tickerWrapper {
-  overflow: hidden;
-  width: 100%;
-  margin-top: 1rem;
-}
-
-.tickerContent {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: nowrap;
-}
-
-.skillItem {
-  flex: 0 0 auto;
-  text-align: center;
 }

@@ -44,7 +44,7 @@ const About = () => {
 
   return (
     <section id="about" className={styles.about}>
-      <h2 className="section-title">About Me</h2>
+      {/* <h2 className="section-title">About Me</h2> */}
       <div className={styles.content}>
         <div className={styles.imageContainer}>
           <img src={profilePic} alt="Adarsh Khatri" className={styles.profileImage} />
@@ -55,7 +55,7 @@ const About = () => {
             <span className={`${styles.cursor} ${text.length === texts[currentTextIndex].length && !isDeleting ? styles.blink : ''}`}>|</span>
           </h3>
           <p>
-            A passionate final-year M.Tech Computer Science student with a strong interest in Data Analytics and Software Development. I enjoy solving real-world problems and have solved 400+ problems on LeetCode.
+            A passionate final-year M.Tech Computer Science student with a strong interest in Data Analytics and Software Development. I enjoy solving real-world problems and have solved 500+ problems across Leetcode, GFG, Coding Ninjas.
           </p>
           <p>
             I have hands-on experience with Python, Data Structures & Algorithms, OOP, React, and deep learning frameworks. I enjoy building scalable projects, contributing to open source, and exploring AI applications like video surveillance and deepfake detection.

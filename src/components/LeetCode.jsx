@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import fiftyday2025 from "../assets/2025-50.gif";
 import pandas from "../assets/pandas.gif"
+import hundredday2025 from "../assets/2025-100.gif"
 
 const LeetCode = () => {
   // state now matches exactly the fields we’ll populate:
@@ -54,6 +55,8 @@ const LeetCode = () => {
         setIsLoading(false);
         return;
       }
+
+      console.log(user);
 
       const { profile, submitStats } = user;
       console.log(user)
@@ -101,6 +104,10 @@ const LeetCode = () => {
           {
             src: fiftyday2025,
             alt: "50 day badge 2025",
+          },
+          {
+            src: hundredday2025,
+            alt: "100 day badge 2025",
           }
         ].map((badge, idx) => (
           <motion.div
